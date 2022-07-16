@@ -114,13 +114,13 @@ public class CCBlocks {
                 spread = 2.6f;
                 shotDelay = 4f;
             }};
-            reload = 25f;
+            reload = 32f;
             inaccuracy = 2f;
             range = 430f;
             health = 560;
             shootSound = Sounds.missile;
             limitRange(3f);
-            coolant = consumeCoolant(0.7f);
+            coolant = consumeCoolant(0.32f);
         }};
     }
 }
