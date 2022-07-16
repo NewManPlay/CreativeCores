@@ -109,11 +109,12 @@ public class CCBlocks {
             );
             size = 3;
             shoot = new ShootAlternate(){{
-                shots = 3;
+                shots = 6;
                 barrels = 5;
                 spread = 2.6f;
+                shotDelay = 4f;
             }};
-            reload = 10f;
+            reload = 25f;
             inaccuracy = 2f;
             range = 430f;
             health = 560;

@@ -18,6 +18,9 @@ public class CCTechTree {
         margeNode(duo, () -> {
             node(swarmling);
         });
+        margeNode(swarmer, () -> {
+            node(colony);
+        });
     }
 
     private static void margeNode(UnlockableContent parent, Runnable children){
