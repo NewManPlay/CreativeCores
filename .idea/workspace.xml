@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d5e1dad-3222-4958-8cd0-c75b249b6c09" name="Changes" comment="" />
+    <list default="true" id="5d5e1dad-3222-4958-8cd0-c75b249b6c09" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/sprites/units/weapons/fission-gun.png" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
