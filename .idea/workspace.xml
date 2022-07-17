@@ -5,9 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d5e1dad-3222-4958-8cd0-c75b249b6c09" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/sprites/units/boss/fission-gun.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/sprites/units/boss/mothership-full.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/creativecores/graphics/CCPal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.2/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.2/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.2/fileHashes/fileHashes.bin" afterDir="false" />
@@ -16,18 +13,12 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sprites/units/boss/mothership-cell.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sprites/units/boss/mothership-cell.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sprites/units/boss/mothership.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sprites/units/boss/mothership.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/creativecores/content/CCFx.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/creativecores/content/CCFx.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/creativecores/content/CCUnitTypes$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/creativecores/content/CCUnitTypes$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sprites/units/boss/fission-gun.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/creativecores/content/CCUnitTypes$1$2$1$1$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/creativecores/content/CCUnitTypes$1$2$1$1$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/creativecores/content/CCUnitTypes$1$2$1$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/creativecores/content/CCUnitTypes$1$2$1$1$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/creativecores/content/CCUnitTypes$1$2$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/creativecores/content/CCUnitTypes$1$2$1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/creativecores/content/CCUnitTypes$1$2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/creativecores/content/CCUnitTypes$1$2$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/creativecores/content/CCUnitTypes$1$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/creativecores/content/CCUnitTypes$1$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/creativecores/content/CCUnitTypes$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/creativecores/content/CCUnitTypes$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/creativecores/content/CCUnitTypes.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/creativecores/content/CCUnitTypes.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/libs/CreativeCoresDesktop.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/CreativeCoresDesktop.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/creativecores/content/CCFx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/creativecores/content/CCFx.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/creativecores/content/CCUnitTypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/creativecores/content/CCUnitTypes.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -96,15 +87,17 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/pangl/OneDrive/Documents/GitHub/CreativeCores/assets/sprites/units/boss&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/pangl/OneDrive/Documents/GitHub/CreativeCores/assets/sprites/units/weapons&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\pangl\OneDrive\Documents\GitHub\CreativeCores\assets\sprites\units\weapons" />
       <recent name="C:\Users\pangl\OneDrive\Documents\GitHub\CreativeCores\assets\sprites\units\boss" />
       <recent name="C:\Users\pangl\OneDrive\Documents\GitHub\CreativeCores\assets\blocks\turrets\swarmers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\pangl\OneDrive\Documents\GitHub\CreativeCores\assets\sprites\units\weapons" />
       <recent name="C:\Users\pangl\OneDrive\Documents\GitHub\CreativeCores\assets\sprites\units\boss" />
       <recent name="C:\Users\pangl\OneDrive\Documents\GitHub\CreativeCores\assets\sprites\blocks\turrets\swarmers" />
       <recent name="C:\Users\pangl\OneDrive\Documents\GitHub\CreativeCores\assets\sprites" />

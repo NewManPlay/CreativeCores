@@ -62,10 +62,10 @@ public class CCUnitTypes {
 
             weapons.add(
                     new Weapon("fission-gun"){{
-                        x = 40f;
-                        y = 20f;
-                        mirror = true;
-                        reload = 320f;
+                        x = 0f;
+                        y = 0f;
+                        mirror = false;
+                        reload = 160f;
                         shootSound = Sounds.artillery;
                         top = true;
                         bullet = new MissileBulletType(5, 200){{
@@ -85,8 +85,8 @@ public class CCUnitTypes {
                             fragBullet = new MissileBulletType(4, 20){{
                                 trailLength = 5;
                                 speed = 6f;
-                                width = 60f;
-                                height = 60f;
+                                width = 30f;
+                                height = 30f;
                                 lifetime = 100f;
                                 frontColor = CCPal.mothershipGreenLight;
                                 backColor = CCPal.mothershipGreen;
@@ -96,8 +96,8 @@ public class CCUnitTypes {
                                 fragBullet = new MissileBulletType(3, 10){{
                                     trailLength = 3;
                                     speed = 3f;
-                                    width = 30f;
-                                    height = 30f;
+                                    width = 20f;
+                                    height = 20f;
                                     lifetime = 80f;
                                     frontColor = CCPal.mothershipGreenLight;
                                     backColor = CCPal.mothershipGreen;
@@ -108,8 +108,8 @@ public class CCUnitTypes {
                                     fragBullet = new MissileBulletType(3, 5){{
                                         trailLength = 3;
                                         speed = 3f;
-                                        width = 30f;
-                                        height = 30f;
+                                        width = 10f;
+                                        height = 10f;
                                         lifetime = 80f;
                                         frontColor = CCPal.mothershipGreenLight;
                                         backColor = CCPal.mothershipGreen;
