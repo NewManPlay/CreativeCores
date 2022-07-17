@@ -1,20 +1,25 @@
 package creativecores.content;
 
+import arc.Core;
 import arc.graphics.Color;
 import arc.graphics.g2d.Draw;
 import arc.graphics.g2d.Fill;
 import arc.graphics.g2d.Lines;
 import arc.math.Interp;
+import creativecores.graphics.CCPal;
 import mindustry.content.UnitTypes;
 import mindustry.entities.abilities.ForceFieldAbility;
 import mindustry.entities.abilities.UnitSpawnAbility;
+import mindustry.entities.bullet.ArtilleryBulletType;
 import mindustry.entities.bullet.BasicBulletType;
 import mindustry.entities.bullet.EmpBulletType;
+import mindustry.entities.bullet.MissileBulletType;
 import mindustry.entities.part.HaloPart;
 import mindustry.gen.Sounds;
 import mindustry.gen.Unit;
 import mindustry.gen.UnitEntity;
 import mindustry.graphics.Layer;
+import mindustry.graphics.Pal;
 import mindustry.type.UnitType;
 import mindustry.type.Weapon;
 import mindustry.type.unit.MissileUnitType;
@@ -31,8 +36,10 @@ public class CCUnitTypes {
             armor = 50;
             speed = 0.32f;
             flying = true;
+            lowAltitude = true;
             constructor = UnitEntity::create;
             hitSize = 10f;
+            range = 200;
             engineOffset = 10f;
             engineSize = 14f;
             parts.add(
@@ -42,60 +49,82 @@ public class CCUnitTypes {
                     mirror = false;
                     hollow = true;
                     sides = 6;
-                    radius = 30f;
+                    shapes = 5;
+                    radius = 20f;
                     stroke = 3f;
-                    color = Color.valueOf("ab7bba");
+                    color = CCPal.mothershipGreen;
                     haloRotateSpeed = 1.3f;
-                    colorTo = Color.valueOf("a65fba");
+                    colorTo = CCPal.mothershipGreenLight;
                     layer = Layer.effect;
                 }}
             );
 
-            weapons.add(
-                    new Weapon("unit-pod-launcher"){{
-                        x = 10f;
-                        y = 0;
-                        mirror = true;
-                        reload = 100f;
-                        shootSound = Sounds.artillery;
-                        bullet = new BasicBulletType(){{
-                            trailLength = 10;
-                            speed = 2f;
-                            width = 20f;
-                            height = 20f;
-                            lifetime = 185f;
-                            frontColor = Color.valueOf("c57cd9");
-                            backColor = Color.valueOf("#8652a8");
-                            trailColor = Color.valueOf("#8652a8");
-                            fragBullets = 12;
-                            fragAngle = 45;
-                            damage = 45;
-                            hitEffect = CCFx.mothershipBulletHit();
 
-                            fragBullet = new BasicBulletType(){{
+            weapons.add(
+                    new Weapon("fission-gun"){{
+                        x = 40f;
+                        y = 20f;
+                        mirror = true;
+                        reload = 320f;
+                        shootSound = Sounds.artillery;
+                        top = true;
+                        bullet = new MissileBulletType(5, 200){{
+                            trailLength = 40;
+                            trailWidth = 6f;
+                            speed = 2f;
+                            width = 40f;
+                            height = 40f;
+                            lifetime = 185f;
+                            frontColor = CCPal.mothershipGreenLight;
+                            backColor = CCPal.mothershipGreen;
+                            trailColor = CCPal.mothershipGreen;
+                            fragBullets = 10;
+                            hitEffect = CCFx.mothershipHit;
+                            hitSize = 30f;
+
+                            fragBullet = new MissileBulletType(4, 20){{
                                 trailLength = 5;
-                                speed = 3f;
-                                width = 10f;
-                                height = 10f;
-                                lifetime = 250f;
-                                frontColor = Color.valueOf("c57cd9");
-                                backColor = Color.valueOf("#8652a8");
-                                trailColor = Color.valueOf("#8652a8");
-                                damage = 10;
+                                speed = 6f;
+                                width = 60f;
+                                height = 60f;
+                                lifetime = 100f;
+                                frontColor = CCPal.mothershipGreenLight;
+                                backColor = CCPal.mothershipGreen;
+                                trailColor = CCPal.mothershipGreen;
+                                fragBullets =5;
+                                hitSize = 30f;
+                                fragBullet = new MissileBulletType(3, 10){{
+                                    trailLength = 3;
+                                    speed = 3f;
+                                    width = 30f;
+                                    height = 30f;
+                                    lifetime = 80f;
+                                    frontColor = CCPal.mothershipGreenLight;
+                                    backColor = CCPal.mothershipGreen;
+                                    trailColor = CCPal.mothershipGreen;
+                                    hitSize = 30f;
+                                    fragBullets = 2;
+
+                                    fragBullet = new MissileBulletType(3, 5){{
+                                        trailLength = 3;
+                                        speed = 3f;
+                                        width = 30f;
+                                        height = 30f;
+                                        lifetime = 80f;
+                                        frontColor = CCPal.mothershipGreenLight;
+                                        backColor = CCPal.mothershipGreen;
+                                        trailColor = CCPal.mothershipGreen;
+                                    }};
+                                }};
                             }};
                         }};
                     }}
             );
 
             abilities.add(new ForceFieldAbility(150f, 10f, 1000f, 5 * 60f));
-            abilities.add(new UnitSpawnAbility(UnitTypes.zenith, 20 * 60f, 0, 0));
-            abilities.add(new UnitSpawnAbility(UnitTypes.horizon, 10 * 60f, 20, 0));
-            abilities.add(new UnitSpawnAbility(UnitTypes.horizon, 10 * 60f, -20, 0));
-        }
-            @Override
-            public void draw(Unit unit){
-                super.draw(unit);
-            }
-        };
+            abilities.add(new UnitSpawnAbility(UnitTypes.zenith, 20 * 60f, 0, -12));
+            abilities.add(new UnitSpawnAbility(UnitTypes.horizon, 10 * 60f, 40, 0));
+            abilities.add(new UnitSpawnAbility(UnitTypes.horizon, 10 * 60f, -40, 0));
+        }};
     }
 }
