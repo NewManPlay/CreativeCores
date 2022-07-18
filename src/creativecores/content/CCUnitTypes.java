@@ -16,10 +16,7 @@ import mindustry.entities.bullet.BasicBulletType;
 import mindustry.entities.bullet.EmpBulletType;
 import mindustry.entities.bullet.MissileBulletType;
 import mindustry.entities.part.HaloPart;
-import mindustry.gen.LegsUnit;
-import mindustry.gen.Sounds;
-import mindustry.gen.Unit;
-import mindustry.gen.UnitEntity;
+import mindustry.gen.*;
 import mindustry.graphics.Layer;
 import mindustry.graphics.Pal;
 import mindustry.type.UnitType;
@@ -29,14 +26,14 @@ import mindustry.type.unit.MissileUnitType;
 public class CCUnitTypes {
     public static UnitType
         //boss
-        mothership, sprout
+        mothership, sprout, spring
     ;
 
     public void load(){
         sprout = new UnitType("sprout"){{
             health = 550;
             armor = 1;
-            speed = 0.93f;
+            speed = 1.2f;
             drag = 0.08f;
             accel = 0.04f;
             range = 55f;
@@ -53,8 +50,8 @@ public class CCUnitTypes {
                             frontColor = CCPal.mothershipGreenLight;
                             backColor = CCPal.mothershipGreen;
                             trailColor = CCPal.mothershipGreen;
-                            trailEffect = Fx.healWave;
                             sprite = "circle-bullet";
+                            trailEffect = Fx.heal;
                             trailLength = 10;
                             trailWidth = 4;
                             hitSize = 5f;
@@ -81,6 +78,41 @@ public class CCUnitTypes {
             hovering = true;
             stepShake = 0;
             rippleScale = 0.1f;
+        }};
+        spring = new UnitType("spring"){{
+            health = 850;
+            armor = 5;
+            speed = 0.86f;
+            drag = 0.08f;
+            accel = 0.04f;
+            legMaxLength = 2;
+            range = 80f;
+            constructor = MechUnit::create;
+            hitSize = 3f;
+
+            weapons.add(
+                    new Weapon("creativecores-spring-cannon"){{
+                        x = 13;
+                        y = 0;
+                        top = true;
+                        reload = 45f;
+                        mirror = true;
+                        bullet = new BasicBulletType(4.3f, 5f){{
+                            frontColor = CCPal.mothershipGreenLight;
+                            backColor = CCPal.mothershipGreen;
+                            trailColor = CCPal.mothershipGreen;
+                            trailEffect = Fx.heal;
+                            sprite = "circle-bullet";
+                            trailLength = 5;
+                            trailWidth = 2;
+                            hitSize = 5f;
+                            reload = 6f;
+
+                            height = 10f;
+                            width = 10f;
+                        }};
+                    }}
+            );
         }};
         mothership = new UnitType("mothership"){{
             health = 65000;
@@ -192,7 +224,7 @@ public class CCUnitTypes {
             );
 
             abilities.add(new ForceFieldAbility(150f, 10f, 1000f, 5 * 60f));
-            abilities.add(new UnitSpawnAbility(UnitTypes.zenith, 20 * 60f, 0, -12));
+            abilities.add(new UnitSpawnAbility(CCUnitTypes.spring, 20 * 60f, 0, -12));
             abilities.add(new UnitSpawnAbility(CCUnitTypes.sprout, 10 * 60f, 40, 0));
             abilities.add(new UnitSpawnAbility(CCUnitTypes.sprout, 10 * 60f, -40, 0));
         }};
