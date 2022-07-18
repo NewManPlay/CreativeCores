@@ -23,7 +23,7 @@ public class CCBlocks {
         swarmling = new ItemTurret("swarmling"){{
             requirements(Category.turret, ItemStack.with(Items.titanium, 80, Items.silicon, 120));
             ammo(
-                    Items.coal, new MissileBulletType(2.5f, 16f){{
+                    Items.coal, new MissileBulletType(2.5f, 12f){{
                         width = 4f;
                         height = 6f;
                         shrinkY = 0f;
@@ -39,7 +39,7 @@ public class CCBlocks {
                     }}
             );
             size = 1;
-            reload = 15f;
+            reload = 34f;
             inaccuracy = 2f;
             range = 100f;
             health = 350;
@@ -49,7 +49,7 @@ public class CCBlocks {
         }};
 
         colony = new ItemTurret("colony"){{
-            requirements(Category.turret, ItemStack.with(Items.copper, 340, Items.titanium, 120, Items.silicon, 130, Items.graphite, 210, Items.plastanium, 135));
+            requirements(Category.turret, ItemStack.with(Items.copper, 340, Items.titanium, 120, Items.silicon, 130, Items.graphite, 210, Items.plastanium, 135, Items.thorium, 160));
             ammo(
                     Items.thorium, new MissileBulletType(3.1f, 56f){{
                         width = 8f;

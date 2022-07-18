@@ -88,7 +88,7 @@ public class CCUnitTypes {
             legMaxLength = 2;
             range = 80f;
             constructor = MechUnit::create;
-            hitSize = 3f;
+            hitSize = 7f;
 
             weapons.add(
                     new Weapon("creativecores-spring-cannon"){{
@@ -153,7 +153,7 @@ public class CCUnitTypes {
                         reload = 250f;
                         shootSound = Sounds.artillery;
                         top = true;
-                        bullet = new MissileBulletType(10f, 200f){{
+                        bullet = new MissileBulletType(10f, 400f){{
                             trailLength = 100;
                             trailWidth = 10f;
                             sprite = "circle-bullet";
@@ -170,7 +170,7 @@ public class CCUnitTypes {
                             weaveScale = 2f;
                             weaveMag = 10f;
 
-                            fragBullet = new MissileBulletType(7, 100){{
+                            fragBullet = new MissileBulletType(7, 200){{
                                 trailLength = 5;
                                 trailEffect = Fx.heal;
                                 sprite = "circle-bullet";
@@ -216,6 +216,22 @@ public class CCUnitTypes {
                                         trailColor = CCPal.mothershipGreen;
                                         weaveScale = 2f;
                                         weaveMag = 10f;
+                                        fragBullets = 4;
+
+                                        fragBullet = new MissileBulletType(9, 50){{
+                                            trailLength = 3;
+                                            trailEffect = Fx.heal;
+                                            sprite = "circle-bullet";
+                                            speed = 3f;
+                                            width = 10f;
+                                            height = 10f;
+                                            lifetime = 80f;
+                                            frontColor = CCPal.mothershipGreenLight;
+                                            backColor = CCPal.mothershipGreen;
+                                            trailColor = CCPal.mothershipGreen;
+                                            weaveScale = 2f;
+                                            weaveMag = 10f;
+                                        }};
                                     }};
                                 }};
                             }};
