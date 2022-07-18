@@ -2,6 +2,7 @@ package creativecores.content;
 
 import mindustry.content.Fx;
 import mindustry.content.Items;
+import mindustry.content.Liquids;
 import mindustry.content.StatusEffects;
 import mindustry.entities.bullet.MissileBulletType;
 import mindustry.entities.pattern.ShootAlternate;
