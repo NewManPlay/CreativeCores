@@ -112,11 +112,11 @@ public class CCBlocks {
             shoot = new ShootAlternate(){{
                 shots = 6;
                 barrels = 5;
-                spread = 2.6f;
+                spread = 6f;
                 shotDelay = 4f;
             }};
             reload = 32f;
-            inaccuracy = 2f;
+            inaccuracy = 5f;
             range = 430f;
             health = 560;
             shootSound = Sounds.missile;
