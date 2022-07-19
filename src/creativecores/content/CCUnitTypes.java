@@ -86,6 +86,7 @@ public class CCUnitTypes {
             drag = 0.08f;
             accel = 0.04f;
             legMaxLength = 2;
+            legBaseOffset = 3f;
             range = 80f;
             constructor = MechUnit::create;
             hitSize = 7f;
@@ -169,6 +170,7 @@ public class CCUnitTypes {
                             fragRandomSpread = 65;
                             weaveScale = 2f;
                             weaveMag = 10f;
+                            pierce = true;
 
                             fragBullet = new MissileBulletType(7, 200){{
                                 trailLength = 5;
@@ -186,7 +188,8 @@ public class CCUnitTypes {
                                 fragRandomSpread = 65;
                                 weaveScale = 2f;
                                 weaveMag = 10f;
-                                fragBullet = new MissileBulletType(8, 50){{
+                                pierce = true;
+                                fragBullet = new MissileBulletType(8, 130){{
                                     trailLength = 3;
                                     trailEffect = Fx.heal;
                                     sprite = "circle-bullet";
@@ -202,8 +205,9 @@ public class CCUnitTypes {
                                     fragRandomSpread = 65;
                                     weaveScale = 2f;
                                     weaveMag = 10f;
+                                    pierce = true;
 
-                                    fragBullet = new MissileBulletType(9, 10){{
+                                    fragBullet = new MissileBulletType(7, 100){{
                                         trailLength = 3;
                                         trailEffect = Fx.heal;
                                         sprite = "circle-bullet";
@@ -217,6 +221,7 @@ public class CCUnitTypes {
                                         weaveScale = 2f;
                                         weaveMag = 10f;
                                         fragBullets = 4;
+                                        pierce = true;
 
                                         fragBullet = new MissileBulletType(9, 50){{
                                             trailLength = 3;
@@ -231,6 +236,7 @@ public class CCUnitTypes {
                                             trailColor = CCPal.mothershipGreen;
                                             weaveScale = 2f;
                                             weaveMag = 10f;
+                                            pierce = true;
                                         }};
                                     }};
                                 }};
