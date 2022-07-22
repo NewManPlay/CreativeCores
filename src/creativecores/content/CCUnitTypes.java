@@ -7,6 +7,7 @@ import arc.graphics.g2d.Fill;
 import arc.graphics.g2d.Lines;
 import arc.math.Interp;
 import creativecores.graphics.CCPal;
+import mindustry.ai.types.GroundAI;
 import mindustry.content.Fx;
 import mindustry.content.UnitTypes;
 import mindustry.entities.abilities.ForceFieldAbility;
@@ -16,12 +17,15 @@ import mindustry.entities.bullet.BasicBulletType;
 import mindustry.entities.bullet.EmpBulletType;
 import mindustry.entities.bullet.MissileBulletType;
 import mindustry.entities.part.HaloPart;
+import mindustry.entities.part.ShapePart;
 import mindustry.gen.*;
 import mindustry.graphics.Layer;
 import mindustry.graphics.Pal;
 import mindustry.type.UnitType;
 import mindustry.type.Weapon;
 import mindustry.type.unit.MissileUnitType;
+
+import javax.print.attribute.HashAttributeSet;
 
 public class CCUnitTypes {
     public static UnitType
@@ -95,7 +99,7 @@ public class CCUnitTypes {
                     new Weapon("creativecores-spring-cannon"){{
                         x = 13;
                         y = 0;
-                        top = true;
+                        top = false;
                         reload = 45f;
                         mirror = true;
                         bullet = new BasicBulletType(4.3f, 5f){{
@@ -118,7 +122,7 @@ public class CCUnitTypes {
         mothership = new UnitType("mothership"){{
             health = 65000;
             armor = 50;
-            speed = 0.4f;
+            speed = 0.3f;
             flying = true;
             lowAltitude = true;
             constructor = UnitEntity::create;
@@ -129,32 +133,32 @@ public class CCUnitTypes {
             engineSize = 14f;
             parts.add(
                 new HaloPart(){{
-                    x = 0;
+                    x = 40;
                     y = 0;
-                    mirror = false;
+                    mirror = true;
                     hollow = true;
                     sides = 6;
                     shapes = 5;
-                    radius = 20f;
+                    radius = 10f;
                     stroke = 3f;
                     color = CCPal.mothershipGreen;
                     haloRotateSpeed = 1.3f;
                     colorTo = CCPal.mothershipGreenLight;
                     layer = Layer.effect;
                 }}
-            );
 
+              );
 
             weapons.add(
                     new Weapon("creativecores-fission-gun"){{
-                        x = 35f;
-                        y = -15f;
+                        x = 40f;
+                        y = 0f;
                         mirror = true;
                         flipSprite = true;
                         reload = 250f;
                         shootSound = Sounds.artillery;
                         top = true;
-                        bullet = new MissileBulletType(10f, 400f){{
+                        bullet = new MissileBulletType(10f, 600f){{
                             trailLength = 100;
                             trailWidth = 10f;
                             sprite = "circle-bullet";
@@ -172,7 +176,7 @@ public class CCUnitTypes {
                             weaveMag = 10f;
                             pierce = true;
 
-                            fragBullet = new MissileBulletType(7, 200){{
+                            fragBullet = new MissileBulletType(7, 160){{
                                 trailLength = 5;
                                 trailEffect = Fx.heal;
                                 sprite = "circle-bullet";
@@ -189,7 +193,7 @@ public class CCUnitTypes {
                                 weaveScale = 2f;
                                 weaveMag = 10f;
                                 pierce = true;
-                                fragBullet = new MissileBulletType(8, 130){{
+                                fragBullet = new MissileBulletType(8, 50){{
                                     trailLength = 3;
                                     trailEffect = Fx.heal;
                                     sprite = "circle-bullet";
@@ -207,7 +211,7 @@ public class CCUnitTypes {
                                     weaveMag = 10f;
                                     pierce = true;
 
-                                    fragBullet = new MissileBulletType(7, 100){{
+                                    fragBullet = new MissileBulletType(7, 20){{
                                         trailLength = 3;
                                         trailEffect = Fx.heal;
                                         sprite = "circle-bullet";
@@ -222,22 +226,6 @@ public class CCUnitTypes {
                                         weaveMag = 10f;
                                         fragBullets = 4;
                                         pierce = true;
-
-                                        fragBullet = new MissileBulletType(9, 50){{
-                                            trailLength = 3;
-                                            trailEffect = Fx.heal;
-                                            sprite = "circle-bullet";
-                                            speed = 3f;
-                                            width = 10f;
-                                            height = 10f;
-                                            lifetime = 80f;
-                                            frontColor = CCPal.mothershipGreenLight;
-                                            backColor = CCPal.mothershipGreen;
-                                            trailColor = CCPal.mothershipGreen;
-                                            weaveScale = 2f;
-                                            weaveMag = 10f;
-                                            pierce = true;
-                                        }};
                                     }};
                                 }};
                             }};
@@ -247,8 +235,8 @@ public class CCUnitTypes {
 
             abilities.add(new ForceFieldAbility(150f, 10f, 1000f, 5 * 60f));
             abilities.add(new UnitSpawnAbility(CCUnitTypes.spring, 20 * 60f, 0, -12));
-            abilities.add(new UnitSpawnAbility(CCUnitTypes.sprout, 10 * 60f, 40, 0));
-            abilities.add(new UnitSpawnAbility(CCUnitTypes.sprout, 10 * 60f, -40, 0));
+            abilities.add(new UnitSpawnAbility(CCUnitTypes.sprout, 10 * 60f, 40, -20));
+            abilities.add(new UnitSpawnAbility(CCUnitTypes.sprout, 10 * 60f, -40, -20));
         }};
     }
 }

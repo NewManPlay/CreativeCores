@@ -1,5 +1,7 @@
 package creativecores.content;
 
+import arc.Core;
+import creativecores.graphics.CCPal;
 import mindustry.content.Fx;
 import mindustry.content.Items;
 import mindustry.content.Liquids;
@@ -11,17 +13,22 @@ import mindustry.type.Category;
 import mindustry.type.ItemStack;
 import mindustry.world.Block;
 import mindustry.world.blocks.defense.turrets.ItemTurret;
+import mindustry.world.blocks.defense.turrets.TractorBeamTurret;
 import mindustry.world.meta.Env;
+
+import static mindustry.type.ItemStack.with;
 
 public class CCBlocks {
     public static Block
         //turret
-        swarmling, colony
+        swarmling, colony,
+
+        triantha
     ;
 
     public void load() {
         swarmling = new ItemTurret("swarmling"){{
-            requirements(Category.turret, ItemStack.with(Items.titanium, 80, Items.silicon, 120));
+            requirements(Category.turret, with(Items.titanium, 80, Items.silicon, 120));
             ammo(
                     Items.coal, new MissileBulletType(2.5f, 12f){{
                         width = 4f;
@@ -49,7 +56,7 @@ public class CCBlocks {
         }};
 
         colony = new ItemTurret("colony"){{
-            requirements(Category.turret, ItemStack.with(Items.copper, 340, Items.titanium, 120, Items.silicon, 130, Items.graphite, 210, Items.plastanium, 135, Items.thorium, 160));
+            requirements(Category.turret, with(Items.copper, 340, Items.titanium, 120, Items.silicon, 130, Items.graphite, 210, Items.plastanium, 135, Items.thorium, 160));
             ammo(
                     Items.thorium, new MissileBulletType(3.1f, 56f){{
                         width = 8f;
@@ -122,6 +129,22 @@ public class CCBlocks {
             shootSound = Sounds.missile;
             limitRange(3f);
             coolant = consumeCoolant(0.32f);
+        }};
+
+        triantha = new TractorBeamTurret("triantha"){{
+            requirements(Category.turret, with(Items.silicon, 450, Items.thorium, 540, Items.plastanium, 250, Items.phaseFabric, 120));
+
+            size = 4;
+            force = 21f;
+            laserWidth = 1;
+            scaledForce = 8f;
+            range = 430f;
+            damage = 17f;
+            scaledHealth = 320;
+            rotateSpeed = 10;
+            laserColor = CCPal.mothershipGreenLight;
+
+            consumeLiquid(Liquids.water, 10f);
         }};
     }
 }
