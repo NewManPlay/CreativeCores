@@ -9,13 +9,12 @@ import arc.math.Interp;
 import creativecores.graphics.CCPal;
 import mindustry.ai.types.GroundAI;
 import mindustry.content.Fx;
+import mindustry.content.StatusEffects;
 import mindustry.content.UnitTypes;
 import mindustry.entities.abilities.ForceFieldAbility;
 import mindustry.entities.abilities.UnitSpawnAbility;
-import mindustry.entities.bullet.ArtilleryBulletType;
-import mindustry.entities.bullet.BasicBulletType;
-import mindustry.entities.bullet.EmpBulletType;
-import mindustry.entities.bullet.MissileBulletType;
+import mindustry.entities.bullet.*;
+import mindustry.entities.effect.ParticleEffect;
 import mindustry.entities.part.HaloPart;
 import mindustry.entities.part.ShapePart;
 import mindustry.gen.*;
@@ -29,8 +28,11 @@ import javax.print.attribute.HashAttributeSet;
 
 public class CCUnitTypes {
     public static UnitType
-        //boss
-        mothership, sprout, spring
+        //motherhsip
+        mothership, sprout, spring,
+
+        //inferno
+        inferno
     ;
 
     public void load(){
@@ -237,6 +239,151 @@ public class CCUnitTypes {
             abilities.add(new UnitSpawnAbility(CCUnitTypes.spring, 20 * 60f, 0, -12));
             abilities.add(new UnitSpawnAbility(CCUnitTypes.sprout, 10 * 60f, 40, -20));
             abilities.add(new UnitSpawnAbility(CCUnitTypes.sprout, 10 * 60f, -40, -20));
+        }};
+
+        inferno = new UnitType("inferno"){{
+            health = 45700;
+            armor = 20;
+            speed = 0.4f;
+            drag = 0.06f;
+            accel = 0.04f;
+            legMaxLength = 2;
+            legSpeed = 0.8f;
+            legBaseOffset = 3f;
+            mechFrontSway = 1f;
+            mechSideSway = 2.6f;
+            immunities.add(StatusEffects.burning);
+            constructor = MechUnit::create;
+            hitSize = 7f;
+            rotateSpeed = 0.65f;
+
+            parts.add(
+                  new HaloPart(){{
+                      x = 0;
+                      y = 0;
+                      mirror = false;
+                      hollow = true;
+                      sides = 4;
+                      shapes = 3;
+                      radius = 16f;
+                      stroke = 5f;
+                      color = CCPal.infernoFlameLight;
+                      haloRotateSpeed = 0.8f;
+                      colorTo = CCPal.infernoFlameLight;
+                      layer = Layer.effect;
+                  }}
+            );
+
+            weapons.add(
+                    new Weapon("creativecores-inferno-melter"){{
+                        x = 75;
+                        y = 0;
+                        top = false;
+                        reload = 5f;
+                        mirror = true;
+                        range = 45;
+                        alternate = false;
+                        bullet = new BasicBulletType(6f, 160f){{
+                            collidesAir = true;
+                            shootY = 45;
+                            width = 0.1f;
+                            height = 0.1f;
+                            hitSize = 10;
+                            shootEffect = new ParticleEffect(){{
+                                particles = 40;
+                                sizeFrom = 9;
+                                sizeTo = 1;
+                                length = 290;
+                                lifetime = 60;
+                                interp = Interp.circleOut;
+                                colorFrom = CCPal.infernoFlame;
+                                colorTo = CCPal.infernoFlameLight;
+                                cone = 16;
+                            }};
+                            hitEffect = new ParticleEffect(){{
+                                particles = 10;
+                                sizeFrom = 0;
+                                sizeTo = 1;
+                                length = 20;
+                                lifetime = 22;
+                                interp = Interp.circleOut;
+                                colorFrom = CCPal.infernoFlame;
+                                colorTo = CCPal.infernoFlameLight;
+                                cone = 16;
+                            }};
+                            despawnEffect = Fx.none;
+                            lifetime = 40f;
+                            hittable = false;
+                            reflectable = false;
+                            pierce = true;
+                            incendAmount = 5;
+                        }};
+                    }},
+
+                    new Weapon("creativecores-inferno-cutter"){{
+                        x = 0;
+                        y = 45;
+                        top = false;
+                        reload = 650;
+                        mirror = false;
+                        range = 360;
+                        shootSound = Sounds.laserblast;
+                        chargeSound = Sounds.lasercharge;
+                        soundPitchMin = 1f;
+                        shake = 20f;
+                        shootY = 0f;
+                        recoil = 0f;
+
+                        cooldownTime = 350f;
+
+                        shootStatusDuration = 60f * 3f;
+                        shootStatus = StatusEffects.unmoving;
+                        shoot.firstShotDelay = 60 * 2f;
+                        parentizeEffects = true;
+                        bullet = new LaserBulletType(){{
+                            length = 540f;
+                            damage = 640f;
+                            width = 80f;
+
+                            lifetime = 100f;
+
+                            lightningSpacing = 35f;
+                            lightningLength = 5;
+                            lightningDelay = 1.1f;
+                            lightningLengthRand = 15;
+                            lightningDamage = 60;
+                            lightningAngleRand = 40f;
+                            largeHit = true;
+                            lightColor = lightningColor = CCPal.infernoFlameLight;
+
+                            chargeEffect = CCFx.infernoLaserShoot;
+
+                            sideAngle = 15f;
+                            sideWidth = 0f;
+                            sideLength = 0f;
+                            colors = new Color[]{CCPal.infernoFlameLight.cpy().a(0.4f), CCPal.infernoFlameLight, Color.white};
+                        }};
+                    }},
+
+                    new Weapon("inferno-launcher"){{
+                        x = 30;
+                        y = 45;
+                        mirror = true;
+                        top = false;
+                        reload = 45;
+                        bullet = new MissileBulletType(3, 100){{
+                            sprite = "creativecores-inferno-missile";
+                            height = 20;
+                            width = 14;
+                            trailLength = 10;
+                            trailWidth = 5;
+                            lifetime = 400;
+                            trailColor = CCPal.infernoFlameLight;
+                            backColor = CCPal.infernoFlame;
+                            frontColor = CCPal.infernoFlameLight;
+                        }};
+                    }}
+            );
         }};
     }
 }
