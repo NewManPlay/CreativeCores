@@ -143,7 +143,7 @@ public class CCUnitTypes {
                     shapes = 5;
                     radius = 10f;
                     stroke = 3f;
-                    color = CCPal.mothershipGreen;
+                    color = CCPal.mothershipGreenLight;
                     haloRotateSpeed = 1.3f;
                     colorTo = CCPal.mothershipGreenLight;
                     layer = Layer.effect;
@@ -283,7 +283,8 @@ public class CCUnitTypes {
                         mirror = true;
                         range = 45;
                         alternate = false;
-                        bullet = new BasicBulletType(6f, 160f){{
+                        flipSprite = true;
+                        bullet = new BasicBulletType(6f, 670f){{
                             collidesAir = true;
                             shootY = 45;
                             width = 0.1f;
@@ -342,7 +343,7 @@ public class CCUnitTypes {
                         parentizeEffects = true;
                         bullet = new LaserBulletType(){{
                             length = 540f;
-                            damage = 640f;
+                            damage = 980f;
                             width = 80f;
 
                             lifetime = 100f;
